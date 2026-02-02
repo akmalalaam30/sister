@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Quiz Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="confetti"></canvas>
+    
+    <!-- Start Screen -->
+    <div id="startScreen" class="screen active">
+        <div class="game-container">
+            <h1 class="pixel-title glitch">THE ULTIMATE<br>QUIZ GAME</h1>
+            <div class="pixel-box">
+                <p class="subtitle">Think you know the answers?</p>
+            </div>
+            <button class="pixel-button start-btn" onclick="startGame()">
+                <span class="btn-text">▶ START GAME</span>
+            </button>
+            <div class="decorative-pixels">
+                <span class="pixel"></span>
+                <span class="pixel"></span>
+                <span class="pixel"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="gameScreen" class="screen">
+        <div class="game-container">
+            <div class="progress-bar">
+                <div class="progress-label">LEVEL <span id="currentLevel">1</span> / 5</div>
+                <div class="progress-track">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+            </div>
+
+            <div class="question-container pixel-box">
+                <h2 id="questionText" class="question-text"></h2>
+                <div id="optionsContainer" class="options-container"></div>
+            </div>
+
+            <div id="correctFeedback" class="feedback-overlay">
+                <div class="feedback-content">
+                    <div class="correct-text">✨ CORRECT! ✨</div>
+                    <div class="pixel-burst"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final Screen -->
+    <div id="finalScreen" class="screen">
+        <div class="game-container">
+            <div id="revealText" class="reveal-container">
+                <p class="reveal-line line1">You got all the answers wrong…</p>
+                <p class="reveal-line line2">Because the correct answer was never in the options.</p>
+                <p class="reveal-line line3">The correct answer is:</p>
+                <h1 class="reveal-answer">YOU.</h1>
+            </div>
+            
+            <div id="photoContainer" class="photo-container">
+                <div class="photo-frame">
+                    <img id="specialPhoto" src="image.jpg" alt="Special Photo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22%3E%3Crect width=%22400%22 height=%22400%22 fill=%22%23ff1493%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2240%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22%3E💖 YOUR PHOTO HERE 💖%3C/text%3E%3C/svg%3E'">
+                    <div class="photo-glow"></div>
+                    <div class="hearts">
+                        <span class="heart">💖</span>
+                        <span class="heart">💖</span>
+                        <span class="heart">💖</span>
+                        <span class="heart">💖</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="gameMusic" loop>
+        <source src="game-music.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="correctSound">
+        <source src="correct.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="celebrationMusic">
+        <source src="celebration.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="clickSound">
+        <source src="data:audio/wav;base64,UklGRhIAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQA=" type="audio/wav">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
